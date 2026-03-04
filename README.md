@@ -1,6 +1,11 @@
 # MAE 148 YOLO Speed Labeler
 
 This tool allows us to label our robocar data quickly and export it for the class dataset.
+# Taking Images
+
+1. Use 16:9 format (it's available on iphone in camera app, not the regular 4:3)
+
+2. Take photos on the same level as the robocar (all angles)
 
 # Image Setup
 
