@@ -1,5 +1,4 @@
 from pathlib import Path
-import blobconverter
 import cv2
 import depthai as dai
 import numpy as np
@@ -9,9 +8,9 @@ with dai.Pipeline() as pipeline:
 
     cameraNode = pipeline.create(dai.node.Camera).build()
     detectionNetwork = pipeline.create(dai.node.DetectionNetwork)
-    output = cameraNode.requestOutput((320, 320), dai.ImgFrame.Type.RGB888p, dai.ImgResizeMode.LETTERBOX, 30)
+    output = cameraNode.requestOutput((256, 256), dai.ImgFrame.Type.RGB888p, dai.ImgResizeMode.LETTERBOX, 30)
     output.link(detectionNetwork.input)
-    detectionNetwork.setNNArchive(dai.NNArchive(Path("best.rvc2.tar.xz")))
+    detectionNetwork.setNNArchive(dai.NNArchive(Path("model-03-08-2.rvc2.tar.xz")))
     labelMap = detectionNetwork.getClasses()
     qRgb = detectionNetwork.passthrough.createOutputQueue()
     qDet = detectionNetwork.out.createOutputQueue()
